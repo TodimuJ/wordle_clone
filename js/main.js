@@ -2,6 +2,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     buildSquares();
 
+    const keys = document.querySelectorAll('keyboard-row button')
+
+    for (let index = 0; index < keys.length; index++) {
+        keys[i].onclick = ({ target }) => {
+            
+        }
+        
+    }
+
     function buildSquares() {
         const gameBoard = document.getElementById("board")
 
