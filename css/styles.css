@@ -34,7 +34,7 @@ header {
 #container {
     display: flex;
     /* background-color: black; */
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../wallpapers/11.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../wallpapers/11.jpg");
     /* background-image: url("../wallpapers/11.jpg"); */
     background-position: center;
     background-size: 100% 100%;

@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         const firstLetterId = (guessedWordCount * 5) + 1;
-        const interval = 200;
+        const interval = 500;
 
         currentWordArr.forEach((letter, index) => {
             setTimeout(() => {
@@ -71,18 +71,39 @@ document.addEventListener("DOMContentLoaded", () => {
                 letterEl.classList.add("animate__flipInX");
                 letterEl.style =  `background-color:${tileColor}; border-color:${tileColor}`;
 
-            }, interval * index);
+            }, interval*index);
         });
 
         guessedWordCount += 1;
 
         //congratulate user on guessing correct word
         if (currentWord === word) {
-            window.alert("You guessed the right word!");
+
+            const currentWordArr = getCurrentWordArr();
+
+            currentWordArr.forEach((letter, index) => {
+
+                setTimeout(() => {
+                    // const tileColor = getTileColor(letter, index);
+
+                    const letterId = firstLetterId + index;
+                    const letterEl = document.getElementById(letterId);
+
+                    letterEl.classList.replace("animate__flipInX", "animate__bounce");      
+                    // letterEl.style = "rgb(83, 141, 78)";               
+
+                    //`background-color:${tileColor}; border-color:${tileColor}`;
+    
+                }, 2500); 
+
+            });
+
+            // window.alert("Impressive!");
         }
 
+
         if (guessedWords.length == 6){
-            window.alert(`You have used up all your guesses! The word was ${word}. `);
+            window.alert(`You have used up all your guesses! The word was ${word}.`);
         }
 
         guessedWords.push([]); //add new array to list to move to next line
