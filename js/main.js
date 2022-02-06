@@ -2,13 +2,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
     buildSquares();
 
-    const keys = document.querySelectorAll('keyboard-row button')
+    const guessedWords = [[]]
+
+    const keys = document.querySelectorAll('.keyboard-row button');
 
     for (let index = 0; index < keys.length; index++) {
-        keys[i].onclick = ({ target }) => {
-            
-        }
-        
+        keys[index].onclick = ({ target }) => {
+            const key = target.getAttribute("data-key");
+
+            console.log(key);
+        };
+    }
+
+    function getCurrentWordArr(){
+        const numberOfGuessedWords = guessedWords.length;
+
+        return guessedWords[numberOfGuessedWords - 1 ]
+    }
+
+    function updateGuessedWords(letter) {
+
     }
 
     function buildSquares() {
