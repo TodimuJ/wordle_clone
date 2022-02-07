@@ -80,10 +80,9 @@ document.addEventListener("DOMContentLoaded", () => {
             }, interval*index);
            
             setTimeout(() => { keyboardColor.style = `background-color: ${tileColor}`; }, 2500); //waits to update the new color of the keybaord
-            
         });
 
-        guessedWordCount += 1;
+        
 
         //congratulate user on guessing correct word
         if (currentWord === word) {
@@ -106,12 +105,15 @@ document.addEventListener("DOMContentLoaded", () => {
             // window.alert("Impressive!");
         }
 
+        
 
-        if (guessedWords.length == 6){
+
+        if (guessedWords.length === 7){
             window.alert(`You have used up all your guesses! The word was ${word}.`);
         }
-
+        
         guessedWords.push([]); //add new array to list to move to next line
+        guessedWordCount = guessedWordCount + 1;
     }
 
 
@@ -129,22 +131,36 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    for (let index = 0; index < keys.length; index++) {
-        keys[index].onclick = ({ target }) => {
-            const letter = target.getAttribute("data-key");
+    // for (let index = 0; index < keys.length; index++) {
+    //     keys[index].onclick = ({ target }) => {
+    //         const letter = target.getAttribute("data-key");
 
-            if (letter === "enter") {
+    //         if (letter === "enter") {
+    //             handleSubmitWord();
+    //             return;      
+    //         }
+
+    //         // if (letter === "del") {
+
+    //         //     return;
+    //         // }
+
+
+    //         updateGuessedWords(letter);
+    //     };
+    // }
+
+
+    document.addEventListener('keypress', (event) => {
+        var letter = event.key;
+
+            if (event.keyCode === 13) {
                 handleSubmitWord();
                 return;      
-            }
+         }
 
-            // if (letter === "del") {
+        updateGuessedWords(letter);
 
-            //     return;
-            // }
+      }, false);
 
-
-            updateGuessedWords(letter);
-        };
-    }
 });
