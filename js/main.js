@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const keys = document.querySelectorAll('.keyboard-row button');
 
+
     let word = "pizza";
     let guessedWordCount = 0;
 
@@ -63,16 +64,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
         currentWordArr.forEach((letter, index) => {
             setTimeout(() => {
+                
                 const tileColor = getTileColor(letter, index);
 
+                const keyboardColor = document.getElementById(letter);
+                console.log(keyboardColor);
+                
+                // keyboardColor.style = `background-color:${tileColor}; border-color:${tileColor}`;
+                
                 const letterId = firstLetterId + index;
                 const letterEl = document.getElementById(letterId);
 
                 letterEl.classList.add("animate__flipInX");
                 letterEl.style =  `background-color:${tileColor}; border-color:${tileColor}`;
 
+                keyboardColor.style = `background-color: ${tileColor}`;
+
             }, interval*index);
         });
+
+        /////////////////////////////////////////////////////////
+
+        // currentWord.forEach((letter) => {
+
+        // });
+
+
+        /////////////////////////////////////////////////////////
 
         guessedWordCount += 1;
 
@@ -84,15 +102,11 @@ document.addEventListener("DOMContentLoaded", () => {
             currentWordArr.forEach((letter, index) => {
 
                 setTimeout(() => {
-                    // const tileColor = getTileColor(letter, index);
 
                     const letterId = firstLetterId + index;
                     const letterEl = document.getElementById(letterId);
 
                     letterEl.classList.replace("animate__flipInX", "animate__bounce");      
-                    // letterEl.style = "rgb(83, 141, 78)";               
-
-                    //`background-color:${tileColor}; border-color:${tileColor}`;
     
                 }, 2500); 
 
