@@ -123,7 +123,8 @@ document.addEventListener("DOMContentLoaded", () => {
         let tempMessage = document.getElementById("message");
 
         tempCenter.style = "display: block; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);";
-        tempMessage.style = "display: block;size: 12px; width: 80px; height: 20px; padding: 10px 10px; background: rgb(36, 35, 33); border-radius: 10px; color: white;";
+        // tempCenter.classList.add("animate__animated animate__backInUp");
+        tempMessage.style = "display: block; size: 12px; width: 80px; height: 20px; padding: 10px 10px; background: rgb(36, 35, 33); border-radius: 10px; color: white;";
     }
 
 
