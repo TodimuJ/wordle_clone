@@ -103,10 +103,11 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             // window.alert("Impressive!");
+            // displaySuccess();
+            setTimeout(() => { displaySuccess() }, 3500);
+
+            
         }
-
-        
-
 
         if (guessedWords.length === 7){
             window.alert(`You have used up all your guesses! The word was ${word}.`);
@@ -114,6 +115,15 @@ document.addEventListener("DOMContentLoaded", () => {
         
         guessedWords.push([]); //add new array to list to move to next line
         guessedWordCount = guessedWordCount + 1;
+    }
+
+
+    function displaySuccess(){
+        let tempCenter = document.getElementById("popup-center");
+        let tempMessage = document.getElementById("message");
+
+        tempCenter.style = "display: block; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);";
+        tempMessage.style = "display: block;size: 12px; width: 80px; height: 20px; padding: 10px 10px; background: rgb(36, 35, 33); border-radius: 10px; color: white;";
     }
 
 
