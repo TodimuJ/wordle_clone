@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return "rgb(181, 159, 59)";
     };
 
-    function handleSubmitWord() {
+    function checkWord() {
         const currentWordArr = getCurrentWordArr();
 
         //word has to be equal to 5 letters
@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //         const letter = target.getAttribute("data-key");
 
     //         if (letter === "enter") {
-    //             handleSubmitWord();
+    //             checkWord();
     //             return;      
     //         }
 
@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
         var letter = event.key;
 
             if (event.keyCode === 13) {
-                handleSubmitWord();
+                checkWord();
                 return;      
          }
 
