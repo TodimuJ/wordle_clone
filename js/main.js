@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const keys = document.querySelectorAll('.keyboard-row button');
 
 
-    let word = "pizza";
+    let word = "craze";
     let guessedWordCount = 0;
 
     function getCurrentWordArr(){
@@ -63,14 +63,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const interval = 500;
 
         currentWordArr.forEach((letter, index) => {
-            setTimeout(() => {
-                
-                const tileColor = getTileColor(letter, index);
+            
+            const tileColor = getTileColor(letter, index);
+            const keyboardColor = document.getElementById(letter);    
 
-                const keyboardColor = document.getElementById(letter);
-                console.log(keyboardColor);
-                
-                // keyboardColor.style = `background-color:${tileColor}; border-color:${tileColor}`;
+
+            //sets the new word tiles' colors
+            setTimeout(() => {
                 
                 const letterId = firstLetterId + index;
                 const letterEl = document.getElementById(letterId);
@@ -78,19 +77,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 letterEl.classList.add("animate__flipInX");
                 letterEl.style =  `background-color:${tileColor}; border-color:${tileColor}`;
 
-                keyboardColor.style = `background-color: ${tileColor}`;
-
             }, interval*index);
+           
+            setTimeout(() => { keyboardColor.style = `background-color: ${tileColor}`; }, 2500); //waits to update the new color of the keybaord
+            
         });
-
-        /////////////////////////////////////////////////////////
-
-        // currentWord.forEach((letter) => {
-
-        // });
-
-
-        /////////////////////////////////////////////////////////
 
         guessedWordCount += 1;
 
